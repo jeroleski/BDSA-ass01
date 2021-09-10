@@ -43,7 +43,7 @@ namespace Assignment1.Tests
                 (1280, 960)}, output);
         }
 
-        [Fact]
+        /*[Fact]
         public void t3()
         {
             //Asign
@@ -54,6 +54,6 @@ namespace Assignment1.Tests
             
             //Assert
             //Assert.Equal(, output);
-        }
+        }*/
     }
 }
