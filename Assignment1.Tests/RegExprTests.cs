@@ -19,7 +19,7 @@ namespace Assignment1.Tests
         }
 
         [Fact]
-        public void t2()
+        public void Resolution_given_a_list_of_written_screen_resolution_returns_the_widths_and_heights_as_tuples()
         {
             //Asign
             List<string> stream = new List<string>(new[] {
@@ -43,17 +43,36 @@ namespace Assignment1.Tests
                 (1280, 960)}, output);
         }
 
-        /*[Fact]
-        public void t3()
+        [Fact]
+        public void InnerText_given_the_following_HTML_and_tag_a_returns_the_inner_text_of_the_a_tags()
         {
             //Asign
-
-
+            var inputHTML = "<div><p>A <b>regular expression</b>, <b>regex</b> or <b>regexp</b> (sometimes called a <b>rational expression</b>) is, in <a href=\"/wiki/Theoretical_computer_science\" title=\"Theoretical computer science\">theoretical computer science</a> and <a href=\"/wiki/Formal_language\" title=\"Formal language\">formal language</a> theory, a sequence of <a href=\"/wiki/Character_(computing)\" title=\"Character (computing)\">characters</a> that define a <i>search <a href=\"/wiki/Pattern_matching\" title=\"Pattern matching\">pattern</a></i>. Usually this pattern is then used by <a href=\"/wiki/String_searching_algorithm\" title=\"String searching algorithm\">string searching algorithms</a> for \"find\" or \"find and replace\" operations on <a href=\"/wiki/String_(computer_science)\" title=\"String (computer science)\">strings</a>.</p></div>";
+            var inputTag = "a";
             //Act
-            //var output = RegExpr.Resolution();
+            var output = RegExpr.InnerText(inputHTML,inputTag);
             
             //Assert
-            //Assert.Equal(, output);
-        }*/
+            Assert.Equal(new[] {
+                "theoretical computer science",
+                "formal language",
+                "characters",
+                "pattern",
+                "string searching algorithms",
+                "strings"
+            }, output);
+        }
+        [Fact]
+        public void InnerText_given_the_following_HTML_and_tag_p_returns_the_inner_text_of_the_p_tag()
+        {
+            //Asign
+            var inputHTML = "<div><p>The phrase <i>regular expressions</i> (and consequently, regexes) is often used to mean the specific, standard textual syntax for representing <u>patterns</u> that matching <em>text</em> need to conform to.</p></div>";
+            var inputTag = "p";
+            //Act
+            var output = RegExpr.InnerText(inputHTML,inputTag);
+            
+            //Assert
+            Assert.Equal(new[] {"The phrase regular expressions (and consequently, regexes) is often used to mean the specific, standard textual syntax for representing patterns that matching text need to conform to."}, output);
+        }
     }
 }
